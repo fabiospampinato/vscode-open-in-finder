@@ -10,13 +10,13 @@ import Utils from './utils';
 
 /* COMMANDS */
 
-function open () {
+function open ( root? ) {
 
   const {activeTextEditor} = vscode.window,
-        {rootPath} = vscode.workspace,
-        editorPath = activeTextEditor ? activeTextEditor.document.fileName : undefined;
+        editorPath = activeTextEditor ? activeTextEditor.document.fileName : undefined,
+        rootPath = Utils.folder.getRootPath ( editorPath );
 
-  if ( editorPath && absolute ( editorPath ) ) {
+  if ( !root && editorPath && absolute ( editorPath ) ) {
 
     applescript.execString (`
       set thePath to POSIX file "${editorPath}"
@@ -38,6 +38,12 @@ function open () {
 
 }
 
+function openRoot () {
+
+  open ( true );
+
+}
+
 /* EXPORT */
 
-export {open};
+export {open, openRoot};
