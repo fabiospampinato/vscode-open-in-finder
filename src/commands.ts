@@ -13,7 +13,7 @@ import Utils from './utils';
 function open ( root? ) {
 
   const {activeTextEditor} = vscode.window,
-        editorPath = activeTextEditor ? activeTextEditor.document.fileName : undefined,
+        editorPath = activeTextEditor ? activeTextEditor.document.uri.fsPath : undefined,
         rootPath = Utils.folder.getRootPath ( editorPath );
 
   if ( !root && editorPath && absolute ( editorPath ) ) {
