@@ -1,4 +1,4 @@
-# VSC Open in Finder
+# Open in Finder
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/fabiospampinato/vscode-open-in-finder/master/resources/logo-128x128.png" alt="Logo">
@@ -10,10 +10,10 @@ There's already a `Files: Active File in Finder` command, but it doesn't work if
 
 ## Install
 
-Run the following in the command palette:
+Follow the instructions in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-open-in-finder), or run the following in the command palette:
 
 ```shell
-ext install vscode-open-in-finder
+ext install fabiospampinato.vscode-open-in-finder
 ```
 
 ## Usage
