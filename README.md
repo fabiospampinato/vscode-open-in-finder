@@ -25,7 +25,7 @@ It adds 2 commands to the command palette:
 'Open Root in Finder' // Open the current project in Finder
 ```
 
-## Hints:
+## Hints
 
 - **Shortcut**: you might want to map the default shortcut for the `Reveal Active File in Finder` action to this extension, add this to your `keybindings.json` file:
 ```json
