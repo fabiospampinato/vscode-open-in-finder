@@ -31,7 +31,7 @@
                 {
                     "command": "openInFinder.open",
                     "group": "navigation",
-                    "when": "editorIsOpen && resourceScheme != 'untitled' && resourceScheme != 'walkThrough'"
+                    "when": "isMac && editorIsOpen && resourceScheme != 'untitled' && resourceScheme != 'walkThrough'"
                 }
             ]
         }
