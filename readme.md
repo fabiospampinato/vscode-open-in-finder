@@ -25,19 +25,6 @@ It adds 2 commands to the command palette:
 'Open Root in Finder' // Open the current project in Finder
 ```
 
-## Hints
-
-- **Shortcut**: you might want to map the default shortcut for the `Reveal Active File in Finder` action to this extension, add this to your `keybindings.json` file:
-```json
-  { "key": "cmd+k r", "command": "openInFinder.open" }
-```
-
-## Contributing
-
-If you found a problem, or have a feature request, please open an [issue](https://github.com/fabiospampinato/vscode-open-in-finder/issues) about it.
-
-If you want to make a pull request you can debug the extension using [Debug Launcher](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-debug-launcher).
-
 ## License
 
 MIT © Fabio Spampinato

@@ -1,48 +1,44 @@
 
 /* IMPORT */
 
-import * as absolute from 'absolute';
-import * as applescript from 'applescript';
-import * as openPath from 'open';
-import * as path from 'path';
-import * as vscode from 'vscode';
-import Utils from './utils';
+import fs from 'node:fs';
+import vscode from 'vscode';
+import {getProjectRootPath} from 'vscode-extras';
+import {openInFinder, revealInFinder} from './utils';
 
-/* COMMANDS */
+/* MAIN */
 
-function open ( root? ) {
+const open = async (): Promise<void> => {
 
-  const {activeTextEditor} = vscode.window,
-        editorPath = activeTextEditor ? activeTextEditor.document.uri.fsPath : undefined,
-        rootPath = Utils.folder.getRootPath ( editorPath );
+  const filePath = vscode.window.activeTextEditor?.document.uri.fsPath;
 
-  if ( !root && editorPath && absolute ( editorPath ) ) {
+  if ( filePath && fs.existsSync ( filePath ) ) {
 
-    applescript.execString (`
-      set thePath to POSIX file "${editorPath}"
-      tell application "Finder"
-        reveal thePath
-        activate
-      end tell
-    `);
-
-  } else if ( rootPath ) {
-
-    openPath ( rootPath, 'Finder' );
+    await revealInFinder ( filePath );
 
   } else {
 
-    vscode.window.showErrorMessage ( 'You have to open a project or a file before opening it in Finder' );
+    await openRoot ();
 
   }
 
-}
+};
 
-function openRoot () {
+const openRoot = async (): Promise<void> => {
 
-  open ( true );
+  const rootPath = getProjectRootPath ();
 
-}
+  if ( rootPath ) {
+
+    await openInFinder ( rootPath );
+
+  } else {
+
+    vscode.window.showErrorMessage ( 'You have to open a project or file before opening it in Finder' );
+
+  }
+
+};
 
 /* EXPORT */
 
