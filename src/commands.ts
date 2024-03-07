@@ -1,18 +1,17 @@
 
 /* IMPORT */
 
-import fs from 'node:fs';
 import vscode from 'vscode';
-import {getProjectRootPath} from 'vscode-extras';
+import {getActiveFilePath, getProjectRootPath} from 'vscode-extras';
 import {openInFinder, revealInFinder} from './utils';
 
 /* MAIN */
 
 const open = async (): Promise<void> => {
 
-  const filePath = vscode.window.activeTextEditor?.document.uri.fsPath;
+  const filePath = getActiveFilePath ();
 
-  if ( filePath && fs.existsSync ( filePath ) ) {
+  if ( filePath ) {
 
     await revealInFinder ( filePath );
 
