@@ -1,8 +1,7 @@
 
 /* IMPORT */
 
-import vscode from 'vscode';
-import {getActiveFilePath, getProjectRootPath} from 'vscode-extras';
+import {alert, getActiveFilePath, getProjectRootPath} from 'vscode-extras';
 import {openInFinder, revealInFinder} from './utils';
 
 /* MAIN */
@@ -33,7 +32,7 @@ const openRoot = async (): Promise<void> => {
 
   } else {
 
-    vscode.window.showErrorMessage ( 'You have to open a project or file before opening it in Finder' );
+    alert.error ( 'You have to open a project or file before opening it in Finder' );
 
   }
 

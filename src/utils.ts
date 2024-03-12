@@ -1,19 +1,19 @@
 
 /* IMPORT */
 
-import {execFile} from 'node:child_process';
+import {exec} from 'vscode-extras';
 
 /* MAIN */
 
 const openInFinder = async ( folderPath: string ): Promise<void> => {
 
-  execFile ( 'open', [folderPath] );
+  await exec ( 'open', [folderPath] );
 
 };
 
 const revealInFinder = async ( filePath: string ): Promise<void> => {
 
-  execFile ( 'open', ['-R', filePath] );
+  await exec ( 'open', ['-R', filePath] );
 
 };
 
