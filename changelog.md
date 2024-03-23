@@ -1,3 +1,6 @@
+### Version 2.0.3
+- Logo: aligned open dot color with other extensions
+
 ### Version 2.0.2
 - Minor internal improvements
 
